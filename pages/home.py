@@ -1,178 +1,165 @@
 import streamlit as st
 
 def show():
-    # ── Hero ──────────────────────────────────────────────────────────────────
+    # Hero Section
     st.markdown("""
-    <div style='text-align:center; padding: 3rem 0 2rem; position:relative;'>
-        <div style='font-family: Bebas Neue, sans-serif; font-size: clamp(3rem,8vw,6rem);
-             line-height:1; letter-spacing:0.05em;
-             background: linear-gradient(135deg, #00E5FF 0%, #FF2D78 55%, #FFB800 100%);
-             -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-             filter: drop-shadow(0 0 40px rgba(0,229,255,0.3));'>
-            RUN AI COACH
+    <div style='text-align: center; padding: 3rem 0 2rem;'>
+        <div style='font-family: Orbitron, monospace; font-size: 3.5rem; font-weight: 900; line-height: 1.1;
+             background: linear-gradient(135deg, #00F5FF 0%, #FF3CAC 50%, #FFD700 100%);
+             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+             text-shadow: none; margin-bottom: 1rem;'>
+            RunAI Coach
         </div>
-        <div style='font-family:JetBrains Mono,monospace; font-size:0.9rem;
-             color:var(--txt2); letter-spacing:0.3em; margin-top:0.5rem;
-             text-transform:uppercase;'>
-            AI-POWERED ELITE RUNNING FORM ANALYZER
+        <div style='font-family: Rajdhani, sans-serif; font-size: 1.3rem; color: #8BA7C7;
+             letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;'>
+            AI-Powered Elite Running Form Analyzer
         </div>
-        <div style='font-size:0.8rem; color:var(--txt3); margin-top:0.4rem;
-             font-family:JetBrains Mono,monospace;'>
-            YOLOv8 Pose Estimation · Real-time Biomechanics · Personal AI Coach
+        <div style='font-family: Space Mono, monospace; font-size: 0.85rem; color: #4A6080;'>
+            Powered by YOLOv8 Pose Estimation · Real-time Biomechanics Analysis
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # ── Stats bar ─────────────────────────────────────────────────────────────
-    stats = [("14", "Biomechanical Metrics", "#00E5FF"),
-             ("60fps", "Frame Analysis", "#FF2D78"),
-             ("YOLOv8", "AI Detection", "#39FF14"),
-             ("Pro DB", "Athlete Benchmarks", "#FFB800"),
-             ("Claude", "AI Coach", "#A855F7")]
-
-    cols = st.columns(5)
-    for col, (val, lbl, color) in zip(cols, stats):
-        with col:
-            st.markdown(f"""
-            <div style='text-align:center; background:var(--bg2);
-                 border:1px solid var(--border); border-radius:12px; padding:1rem 0.5rem;
-                 border-top: 2px solid {color};'>
-                <div style='font-family:Bebas Neue; font-size:1.8rem; color:{color};
-                     text-shadow: 0 0 20px {color}55;'>{val}</div>
-                <div style='font-size:0.7rem; color:var(--txt3); font-family:JetBrains Mono;
-                     margin-top:0.2rem; line-height:1.3;'>{lbl}</div>
-            </div>
-            """, unsafe_allow_html=True)
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    # ── Feature cards ─────────────────────────────────────────────────────────
-    col1, col2, col3 = st.columns(3)
-    features = [
-        ("🎯", "วิเคราะห์ท่าวิ่ง", "#00E5FF",
-         "ตรวจจับ 17 จุดบนร่างกายแบบ Real-time ด้วย YOLOv8 คำนวณมุมข้อต่อ การก้าว และสมดุลลำตัวทุกเฟรม"),
-        ("🏆", "เปรียบกับมือโปร", "#FF2D78",
-         "เทียบกับฐานข้อมูลนักวิ่งระดับโลก ค้นหาจุดที่ต้องพัฒนาและวางแผนซ้อมอย่างมีเป้าหมาย"),
-        ("💪", "โปรแกรมซ้อม AI", "#39FF14",
-         "สร้างแผนฝึกซ้อมเฉพาะบุคคลตามจุดอ่อนที่ AI ตรวจพบ พร้อมวิดีโอแนะนำและตัวชี้วัดความก้าวหน้า"),
-    ]
-    for col, (icon, title, color, desc) in zip([col1, col2, col3], features):
-        with col:
-            st.markdown(f"""
-            <div class='metric-card' style='height:220px; border-top:2px solid {color};'>
-                <div style='font-size:2.5rem; margin-bottom:0.8rem;'>{icon}</div>
-                <div style='font-family:Exo 2,sans-serif; font-size:1.1rem; font-weight:800;
-                     color:{color}; margin-bottom:0.6rem;'>{title}</div>
-                <div style='color:var(--txt2); font-size:0.9rem; line-height:1.6;'>{desc}</div>
-            </div>
-            """, unsafe_allow_html=True)
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    # ── How it works ──────────────────────────────────────────────────────────
+    # Animated stats bar
     st.markdown("""
-    <div style='font-family:Bebas Neue; font-size:1.8rem; color:var(--c1);
-         letter-spacing:0.1em; margin-bottom:1rem;'>
+    <div style='background: linear-gradient(90deg, rgba(0,245,255,0.05), rgba(255,60,172,0.05));
+         border: 1px solid rgba(0,245,255,0.15); border-radius: 12px;
+         padding: 1.2rem 2rem; margin: 1rem 0 2rem; display: flex;
+         justify-content: space-around; flex-wrap: wrap; gap: 1rem;'>
+        <div style='text-align: center;'>
+            <div style='font-family: Orbitron; font-size: 1.8rem; color: #00F5FF; font-weight: 900;'>14</div>
+            <div style='color: #8BA7C7; font-size: 0.8rem;'>Biomechanical<br>Metrics</div>
+        </div>
+        <div style='text-align: center;'>
+            <div style='font-family: Orbitron; font-size: 1.8rem; color: #FF3CAC; font-weight: 900;'>60fps</div>
+            <div style='color: #8BA7C7; font-size: 0.8rem;'>Frame<br>Analysis</div>
+        </div>
+        <div style='text-align: center;'>
+            <div style='font-family: Orbitron; font-size: 1.8rem; color: #39FF14; font-weight: 900;'>AI</div>
+            <div style='color: #8BA7C7; font-size: 0.8rem;'>Personal<br>Coach</div>
+        </div>
+        <div style='text-align: center;'>
+            <div style='font-family: Orbitron; font-size: 1.8rem; color: #FFD700; font-weight: 900;'>Pro</div>
+            <div style='color: #8BA7C7; font-size: 0.8rem;'>Athlete<br>Database</div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Feature cards
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("""
+        <div class='metric-card' style='height: 200px;'>
+            <div style='font-size: 2.5rem; margin-bottom: 0.8rem;'>🎯</div>
+            <div style='font-family: Orbitron; font-size: 1rem; color: #00F5FF; margin-bottom: 0.5rem;'>
+                วิเคราะห์ท่าวิ่ง
+            </div>
+            <div style='color: #8BA7C7; font-size: 0.9rem; line-height: 1.5;'>
+                ตรวจจับ 17 จุดบนร่างกายด้วย YOLOv8
+                คำนวณมุมข้อต่อ การก้าว และสมดุลลำตัว
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("""
+        <div class='metric-card' style='height: 200px;'>
+            <div style='font-size: 2.5rem; margin-bottom: 0.8rem;'>🏆</div>
+            <div style='font-family: Orbitron; font-size: 1rem; color: #FF3CAC; margin-bottom: 0.5rem;'>
+                เปรียบมือโปร
+            </div>
+            <div style='color: #8BA7C7; font-size: 0.9rem; line-height: 1.5;'>
+                เทียบกับฐานข้อมูลนักวิ่งระดับโลก
+                ค้นหาจุดที่ต้องพัฒนาและวางแผนซ้อม
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col3:
+        st.markdown("""
+        <div class='metric-card' style='height: 200px;'>
+            <div style='font-size: 2.5rem; margin-bottom: 0.8rem;'>💪</div>
+            <div style='font-family: Orbitron; font-size: 1rem; color: #39FF14; margin-bottom: 0.5rem;'>
+                โปรแกรมซ้อม AI
+            </div>
+            <div style='color: #8BA7C7; font-size: 0.9rem; line-height: 1.5;'>
+                สร้างแผนฝึกซ้อมเฉพาะบุคคล
+                ตามจุดอ่อนที่ AI ตรวจพบ
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # How it works
+    st.markdown("""
+    <div style='font-family: Orbitron; font-size: 1.2rem; color: #00F5FF;
+         margin: 1.5rem 0 1rem; text-transform: uppercase; letter-spacing: 0.1em;'>
         ⚡ วิธีการทำงาน
     </div>
     """, unsafe_allow_html=True)
 
     steps = [
-        ("01", "📤", "อัปโหลดวิดีโอ",
-         "รองรับ MP4, MOV, AVI, MKV ถ่ายจากด้านข้างระดับสะโพก ความยาว 5-60 วินาที", "#00E5FF"),
-        ("02", "🤖", "AI ประมวลผล",
-         "YOLOv8 ตรวจจับ 17 จุดร่างกายต่อเฟรม คำนวณ 14 ค่าชีวกลศาสตร์แบบ Real-time", "#FF2D78"),
-        ("03", "📊", "รับรายงาน",
-         "เห็นผลวิเคราะห์ละเอียด กราฟแต่ละเมทริก เทียบมาตรฐานมืออาชีพ และคะแนนรวม", "#39FF14"),
-        ("04", "💬", "AI โค้ชแนะนำ",
-         "คุยกับ AI Coach เพื่อรับคำแนะนำเฉพาะตัว แผนฝึกซ้อม และติดตามพัฒนาการ", "#FFB800"),
+        ("1", "📤", "อัปโหลดวิดีโอ", "รองรับ MP4, MOV, AVI ความยาว 5-60 วินาที ถ่ายจากด้านข้างเพื่อผลลัพธ์ที่ดีที่สุด"),
+        ("2", "🤖", "AI วิเคราะห์", "YOLOv8 ตรวจจับ 17 จุดร่างกาย คำนวณมุมข้อต่อ 14 ค่าต่อเฟรม"),
+        ("3", "📊", "รับรายงาน", "ดูผลวิเคราะห์ละเอียด เทียบกับมาตรฐานมืออาชีพ และรับคำแนะนำเฉพาะ"),
+        ("4", "💪", "พัฒนาต่อ", "แผนฝึกซ้อม AI ปรับแต่งตามจุดอ่อนของคุณ ติดตามพัฒนาการรายสัปดาห์"),
     ]
 
     cols = st.columns(4)
-    for col, (num, icon, title, desc, color) in zip(cols, steps):
-        with col:
+    for i, (num, icon, title, desc) in enumerate(steps):
+        with cols[i]:
+            color = ["#00F5FF", "#FF3CAC", "#39FF14", "#FFD700"][i]
             st.markdown(f"""
-            <div style='text-align:center; padding:1rem 0.5rem;'>
-                <div style='font-family:Bebas Neue; font-size:3rem; color:{color};
-                     opacity:0.2; line-height:1; margin-bottom:-0.5rem;'>{num}</div>
-                <div style='font-size:2rem; margin-bottom:0.5rem;'>{icon}</div>
-                <div style='font-weight:800; color:var(--txt1); margin-bottom:0.4rem; font-size:0.95rem;'>{title}</div>
-                <div style='color:var(--txt2); font-size:0.82rem; line-height:1.5;'>{desc}</div>
+            <div style='text-align: center; padding: 1rem;'>
+                <div style='font-family: Orbitron; font-size: 2rem; color: {color};
+                     font-weight: 900; margin-bottom: 0.3rem;'>{icon}</div>
+                <div style='font-family: Orbitron; font-size: 0.8rem; color: {color};
+                     margin-bottom: 0.5rem; text-transform: uppercase;'>STEP {num}</div>
+                <div style='color: #E8F4FD; font-weight: 600; margin-bottom: 0.4rem;'>{title}</div>
+                <div style='color: #8BA7C7; font-size: 0.85rem; line-height: 1.5;'>{desc}</div>
             </div>
             """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ── Metrics grid ──────────────────────────────────────────────────────────
-    st.markdown("""
-    <div style='font-family:Bebas Neue; font-size:1.8rem; color:var(--c1);
-         letter-spacing:0.1em; margin-bottom:1rem;'>
-        📐 ตัวชี้วัดที่วิเคราะห์ (14 Metrics)
-    </div>
-    """, unsafe_allow_html=True)
-
-    metrics = [
-        ("🎯", "Head Lean", "มุมเอียงศีรษะ", "#00E5FF"),
-        ("⚖️", "Shoulder Roll", "การหมุนไหล่", "#FF2D78"),
-        ("🍑", "Pelvic Drop", "การตกของสะโพก", "#FFB800"),
-        ("📐", "Torso Lean", "มุมเอียงลำตัว", "#39FF14"),
-        ("🦵", "L/R Hip Angle", "มุมสะโพก", "#A855F7"),
-        ("🦿", "L/R Knee Angle", "มุมเข่า", "#00E5FF"),
-        ("💪", "L/R Arm Angle", "มุมแขน", "#FF2D78"),
-        ("👣", "Step Length", "ระยะก้าว", "#FFB800"),
-        ("📊", "Vert. Oscillation", "การแกว่งแนวตั้ง", "#39FF14"),
-        ("🏃", "Foot Strike", "จังหวะการลงเท้า", "#A855F7"),
-    ]
-
-    cols = st.columns(5)
-    for i, (icon, name, th, color) in enumerate(metrics):
-        with cols[i % 5]:
-            st.markdown(f"""
-            <div style='background:var(--bg2); border:1px solid var(--border);
-                 border-left:3px solid {color}; border-radius:8px;
-                 padding:0.6rem 0.8rem; margin-bottom:0.5rem;'>
-                <div style='font-size:1.2rem;'>{icon}</div>
-                <div style='font-size:0.82rem; font-weight:700; color:var(--txt1);'>{name}</div>
-                <div style='font-size:0.72rem; color:var(--txt3);'>{th}</div>
-            </div>
-            """, unsafe_allow_html=True)
-
-    st.markdown("<br><br>", unsafe_allow_html=True)
-
-    # ── CTA ───────────────────────────────────────────────────────────────────
+    # CTA
     col_a, col_b, col_c = st.columns([1, 2, 1])
     with col_b:
         if st.button("🚀 เริ่มวิเคราะห์ท่าวิ่งเลย!", use_container_width=True):
             st.session_state.current_page = "upload"
             st.rerun()
 
+    # Metrics analyzed
+    st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("""
-    <div style='text-align:center; margin-top:1rem; color:var(--txt3); font-size:0.8rem;
-         font-family:JetBrains Mono;'>
-        หรือดูตัวอย่างผลวิเคราะห์ด้านล่างก่อน ↓
+    <div style='font-family: Orbitron; font-size: 1rem; color: #8BA7C7;
+         margin: 1rem 0; text-align: center; text-transform: uppercase; letter-spacing: 0.1em;'>
+        📐 ตัวชี้วัดที่วิเคราะห์
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("<br>", unsafe_allow_html=True)
+    metrics_info = [
+        ("🎯 Head Lean", "มุมเอียงศีรษะ"),
+        ("⚖️ Shoulder Roll", "การหมุนไหล่"),
+        ("🍑 Pelvic Drop", "การตกสะโพก"),
+        ("📐 Torso Lean", "มุมเอียงลำตัว"),
+        ("🦵 Hip Angles", "มุมสะโพก L/R"),
+        ("🦿 Knee Angles", "มุมเข่า L/R"),
+        ("💪 Arm Angles", "มุมแขน L/R"),
+        ("👣 Step Length", "ระยะก้าว"),
+        ("📊 Vert. Osc.", "การแกว่งแนวตั้ง"),
+        ("🏃 Foot Strike", "การลงเท้า"),
+    ]
 
-    # ── Demo preview box ──────────────────────────────────────────────────────
-    st.markdown("""
-    <div style='background:linear-gradient(135deg,rgba(0,229,255,0.05),rgba(255,45,120,0.05));
-         border:1px solid var(--border); border-radius:16px; padding:1.5rem;'>
-        <div style='font-family:Bebas Neue; font-size:1.2rem; color:var(--c4);
-             margin-bottom:0.8rem;'>💡 ตัวอย่างผลวิเคราะห์จากนักวิ่งจริง</div>
-        <div style='display:grid; grid-template-columns:repeat(4,1fr); gap:0.8rem;'>
-    """, unsafe_allow_html=True)
-
-    demo = [("68", "คะแนนรวม", "#FFB800"), ("7.2°", "Head Lean", "#00E5FF"),
-            ("6.8°", "Pelvic Drop", "#FF2D78"), ("9.3°", "Torso Lean", "#39FF14")]
-    cols = st.columns(4)
-    for col, (val, lbl, color) in zip(cols, demo):
-        with col:
+    cols = st.columns(5)
+    for i, (icon_title, desc) in enumerate(metrics_info):
+        with cols[i % 5]:
             st.markdown(f"""
-            <div style='text-align:center; background:var(--bg2); border-radius:10px; padding:0.8rem;'>
-                <div style='font-family:Bebas Neue; font-size:2.2rem; color:{color};'>{val}</div>
-                <div style='font-size:0.75rem; color:var(--txt3); font-family:JetBrains Mono;'>{lbl}</div>
+            <div style='background: var(--bg-card); border: 1px solid var(--border-color);
+                 border-radius: 8px; padding: 0.7rem; text-align: center; margin-bottom: 0.5rem;'>
+                <div style='font-size: 0.85rem; color: #E8F4FD; font-weight: 600;'>{icon_title}</div>
+                <div style='font-size: 0.75rem; color: #8BA7C7;'>{desc}</div>
             </div>
             """, unsafe_allow_html=True)
-    st.markdown("</div></div>", unsafe_allow_html=True)
